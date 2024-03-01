@@ -1,17 +1,14 @@
 /* eslint-disable import/no-extraneous-dependencies */
 const path = require('path');
-const { HotModuleReplacementPlugin } = require('webpack');
-const nodeExternals = require('webpack-node-externals');
+// const nodeExternals = require('webpack-node-externals');
 
 const browserConfig = {
   mode: 'development',
-  entry: {app: ['./src/App.jsx']},
+  entry: './src/App.jsx',
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'public'),
     publicPath: '/',
-    hotUpdateChunkFilename: '.hot/hot-update.js',
-    hotUpdateMainFilename: '.hot/hot-update.json',
   },
   module: {
     rules: [
@@ -45,21 +42,13 @@ const browserConfig = {
     },
   },
   devtool: 'source-map',
-  watchOptions: {
-    ignored: '/node_modules/',
-  },
-  plugins: [
-    new HotModuleReplacementPlugin({
-      multistep: false,
-    }),
-  ],
 };
 
 const serverConfig = {
   mode: 'development',
   entry: './server/uiserver.js',
   target: 'node',
-  externals: [nodeExternals()],
+  // externals: [nodeExternals()],
   output: {
     filename: 'server.js',
     path: path.resolve(__dirname, 'dist'),

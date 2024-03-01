@@ -1,21 +1,35 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-const App = () => {
-  const continents = ['Russia', 'Africa', 'Europe', 'USA', 'lwh'];
+const IssueFilter = () => {
+  return (
+    <div>Issue Filter component to filter issues shown in an issue table</div>
+  );
+}
+
+const IssueTable = () => {
+  return (
+    <div>Issue Table component to render the complete list of issues or filtered ones</div>
+  );
+}
+
+const IssueAdd = () => {
+  return (
+    <div>Issue Add component to create new issues</div>
+  );
+}
+
+const IssueList = () => {
   return (
     <div>
-      {continents.map((item, i) => <div key={i}>Hello, {item}!</div>)}
+      <h1>Issue Tracker</h1>
+      <IssueFilter />
+      <hr />
+      <IssueTable />
+      <hr />
+      <IssueAdd />
     </div>
   );
 }
 
-ReactDOM.createRoot(
-  document.getElementById('root'),
-).render(<App />);
-
-if (module.hot) {
-  module.hot.accept(function (err) {
-    console.log('An error occurred while accepting new version');
-  });
-}
+ReactDOM.createRoot(document.getElementById('root')).render(<IssueList />);
