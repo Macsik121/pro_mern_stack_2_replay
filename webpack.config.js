@@ -35,6 +35,9 @@ const browserConfig = {
       },
     ],
   },
+  resolve: {
+    extensions: ['.js', '.json', '.jsx'],
+  },
   optimization: {
     splitChunks: {
       name: 'vendor',

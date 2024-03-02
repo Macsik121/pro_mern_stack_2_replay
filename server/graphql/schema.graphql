@@ -1,0 +1,40 @@
+scalar Date
+
+type User {
+  name: String
+}
+
+type Issue {
+  id: Int!
+  status: IssueStatus!
+  owner: String!
+  created: Date!
+  due: Date
+  effort: Int
+  title: String!
+}
+
+input IssueInput {
+  status: IssueStatus
+  owner: String
+  due: Date
+  effort: Int
+  title: String!
+}
+
+enum IssueStatus {
+  New
+  Assigned
+  Fixed
+  Closed
+}
+
+type Query {
+  about: String!
+  issueList: [Issue!]!
+}
+
+type Mutation {
+  setAboutMsg(msg: String!): String!
+  createIssue(issue: IssueInput!): Issue!
+}

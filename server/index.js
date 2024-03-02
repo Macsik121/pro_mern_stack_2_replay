@@ -1,12 +1,12 @@
 require('dotenv').config();
 const express = require('express');
-const webpack = require('webpack');
-const webpackConfig = require('./webpack.config');
-// const webpackCompiler = webpack(webpackConfig);
+const installAPIHandler = require('./graphql/installAPIHandler');
 const app = express();
 const port = process.env.PORT || '3000';
 
 app.use(express.static('public'));
+
+installAPIHandler(app);
 
 // app.use(require('webpack-dev-middleware')(webpackCompiler));
 
